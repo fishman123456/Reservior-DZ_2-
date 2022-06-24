@@ -38,7 +38,7 @@ public:
 	}
 	Reservior() : Reservior(0, 0, 0, "0") {}
 	~Reservior() {
-		cout << "\n Работает деструктор\n";
+		cout << "\nРаботает деструктор\n";
 	}
 	// volume
 	//  1 Определения приблизительного обьема (ширина, длина, максимальная глубина)
@@ -51,13 +51,13 @@ public:
 	{
 		cout << endl << "Площадь водоема = " << length * width << " m3" << endl;
 	}
-	void display()
+	void display() const
 	{
-		cout << endl << "Длина" << length;
-		cout << endl << "Ширина" << width;
-		cout << endl << "Высота" << height;
-		cout << endl << "Имя" << name;
-		cout << endl << "Площадь" << squ;
+		cout << endl << "Длина " << length;
+		cout << endl << "Ширина " << width;
+		cout << endl << "Высота " << height;
+		cout << endl << "Имя " << name;
+		cout << endl << "Площадь " << squ;
 	}
 };
 
@@ -69,6 +69,5 @@ int main()
 	one.square();
 	Reservior two(one);
 	two.display();
-
 }
 
