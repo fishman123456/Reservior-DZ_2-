@@ -19,7 +19,6 @@
 using namespace std;
 class Reservior {
 private:
-	
 	double length;
 	double width;
 	double height;
@@ -31,43 +30,45 @@ public:
 	{
 		cout << "\nработает конструктор с параметрами\n";
 	}
-	Reservior(): Reservior(0,0,0,"0") {}
+	Reservior(const Reservior& obj)
+		:length{ obj.length }, width{ obj.width }, height{ obj.height }, name{ obj.name }, squ{ obj.squ }
+	{
+		cout << "\nКонструктор копирования\n";
+
+	}
+	Reservior() : Reservior(0, 0, 0, "0") {}
 	~Reservior() {
 		cout << "\n Работает деструктор\n";
 	}
 	// volume
 	//  1 Определения приблизительного обьема (ширина, длина, максимальная глубина)
-	double volume(double Plength, double Pwidth, double Pheight, string Pname) 
-	{ 
-		double vol =
-			(Plength * Pwidth * Pheight);
-		cout << endl << "Обьем водоема = " << vol << " m3" << endl;
-		return vol;
-
+	void volume()
+	{
+		cout << endl << "Обьем водоема = " << length * width * height << " m3" << endl;
 	}
 	// 2 Определение площади водной поверхности
-	double square (double Plength, double Pwidth,  string Pname)
+	void square()
 	{
-
-		double squ =
-			(Plength * Pwidth);
-		cout << endl << "Площадь водоема = " << squ << " m3" << endl;
-		return squ;
-
+		cout << endl << "Площадь водоема = " << length * width << " m3" << endl;
 	}
-	void print()
+	void display()
 	{
-		
+		cout << endl << "Длина" << length;
+		cout << endl << "Ширина" << width;
+		cout << endl << "Высота" << height;
+		cout << endl << "Имя" << name;
+		cout << endl << "Площадь" << squ;
 	}
 };
 
 int main()
 {
 	system("chcp 1251");
-	Reservior one;
-	one.volume(3.2, 6.4, 5.2, "ванная");
-	one.square(2, 2, "бассейн");
-	Reservior two;
-	
+	Reservior one{ 1,55,3,"cvhnj" };
+	one.volume();
+	one.square();
+	Reservior two(one);
+	two.display();
+
 }
 
